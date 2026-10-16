@@ -1,8 +1,7 @@
-/* 2352475 ¼Æ¿Æ Ò×Ñô */
 #include <iostream>
 #include <conio.h>
-#include "../include/cmd_console_tools.h"
-#include "../include/common-popstar_ball.h"
+#include "cmd_console_tools.h"
+#include "common-popstar_ball.h"
 #include "90-02-b1-popstar.h"
 using namespace std;
 
@@ -12,22 +11,22 @@ int main()
 	int row, col, x, y, n, high, length, score = 0, sum = 0, ret;
 	RAND popstar[10][10];
 	const char* InputMenu[65] = {
-		"A.ÃüÁîĞĞÕÒ³ö¿ÉÏû³ıÏî²¢±êÊ¶",
-		"B.ÃüÁîĞĞÍê³ÉÒ»´ÎÏû³ı£¨·Ö²½ÖèÏÔÊ¾£©",
-		"C.ÃüÁîĞĞÍê³ÉÒ»¹Ø£¨·Ö²½ÖèÏÔÊ¾£©",
-		"D.Î±Í¼ĞÎ½çÃæÏÂÓÃÊó±êÑ¡ÔñÒ»¸öÉ«¿é£¨ÎŞ·Ö¸ôÏß£©",
-		"E.Î±Í¼ĞÎ½çÃæÏÂÓÃÊó±êÑ¡ÔñÒ»¸öÉ«¿é£¨ÓĞ·Ö¸ôÏß£©",
-		"F.Î±Í¼ĞÎ½çÃæÍê³ÉÒ»´ÎÏû³ı£¨·Ö²½Öè£©",
-		"G.Î±Í¼ĞÎ½çÃæÍêÕû°æ",
-		"Q.ÍË³ö",
+		"A.å‘½ä»¤è¡Œæ‰¾å‡ºå¯æ¶ˆé™¤é¡¹å¹¶æ ‡è¯†",
+		"B.å‘½ä»¤è¡Œå®Œæˆä¸€æ¬¡æ¶ˆé™¤ï¼ˆåˆ†æ­¥éª¤æ˜¾ç¤ºï¼‰",
+		"C.å‘½ä»¤è¡Œå®Œæˆä¸€å…³ï¼ˆåˆ†æ­¥éª¤æ˜¾ç¤ºï¼‰",
+		"D.ä¼ªå›¾å½¢ç•Œé¢ä¸‹ç”¨é¼ æ ‡é€‰æ‹©ä¸€ä¸ªè‰²å—ï¼ˆæ— åˆ†éš”çº¿ï¼‰",
+		"E.ä¼ªå›¾å½¢ç•Œé¢ä¸‹ç”¨é¼ æ ‡é€‰æ‹©ä¸€ä¸ªè‰²å—ï¼ˆæœ‰åˆ†éš”çº¿ï¼‰",
+		"F.ä¼ªå›¾å½¢ç•Œé¢å®Œæˆä¸€æ¬¡æ¶ˆé™¤ï¼ˆåˆ†æ­¥éª¤ï¼‰",
+		"G.ä¼ªå›¾å½¢ç•Œé¢å®Œæ•´ç‰ˆ",
+		"Q.é€€å‡º",
 		 NULL
 	};
 	const char* choice = "AaBbCcDdEeFfGgQq";
 	const char* col_sign = "0123456789";
 	const char* row_sign = "ABCDEFGHIJ";
-	const char* unit = "¡ï";
-	const char* frame1[12] = { "¨X","¨j","¨[","¨d","¨p","¨g","¨^","¨m","¨a","¨T","¨U" };
-	const char* frame2[12] = { "©³","©×","©·","©Ç","©ï","©Ï","©»","©ß","©¿","©¥","©§" };
+	const char* unit = "â˜…";
+	const char* frame1[12] = { "â•”","â•¦","â•—","â• ","â•¬","â•£","â•š","â•©","â•","â•","â•‘" };
+	const char* frame2[12] = { "â”","â”³","â”“","â”£","â•‹","â”«","â”—","â”»","â”›","â”","â”ƒ" };
 
 	while (1) {
 		cct_setconsoleborder(90, 30, 120, 9000);
@@ -40,12 +39,12 @@ int main()
 			input(&row, &col, ROW_MIN, ROW_MAX, COL_MIN, COL_MAX);
 			produce(row, col, 5, popstar);
 			while (1) {
-				cout << "µ±Ç°Êı×é£º" << endl;
+				cout << "å½“å‰æ•°ç»„ï¼š" << endl;
 				print_table(row, col, row_sign, col_sign, popstar);
 				cout << endl;
 				if (finish(row, col, popstar, 2)) {
 					while (1) {
-						cout << "ÇëÒÔ×ÖÄ¸+Êı×ÖĞÎÊ½[Àı£ºc2]ÊäÈë¾ØÕó×ø±ê£º";
+						cout << "è¯·ä»¥å­—æ¯+æ•°å­—å½¢å¼[ä¾‹ï¼šc2]è¾“å…¥çŸ©é˜µåæ ‡ï¼š";
 						cct_getxy(x, y);
 						while (1) {
 							cct_gotoxy(x, y);
@@ -56,11 +55,11 @@ int main()
 								cur_row -= 32;
 							}
 							if (strchr(row_sign, cur_row) != NULL && strchr(col_sign, cur_col) != NULL && cur_row <= row - 1 + 'A' && cur_col <= col - 1 + '0') {
-								cout << "ÊäÈëÎª" << cur_row << "ĞĞ" << cur_col << "ÁĞ                      " << endl;
+								cout << "è¾“å…¥ä¸º" << cur_row << "è¡Œ" << cur_col << "åˆ—                      " << endl;
 								break;
 							}
 							else {
-								cout << "ÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+								cout << "è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 							}
 						}
 						judge(row, col, cur_row - 'A', cur_col - '0', popstar);
@@ -69,37 +68,37 @@ int main()
 							break;
 						}
 						else {
-							cout << "ÊäÈëµÄ¾ØÕó×ø±êÎ»ÖÃ´¦ÎŞÁ¬ĞøÏàÍ¬Öµ£¬ÇëÖØĞÂÊäÈë" << endl;
+							cout << "è¾“å…¥çš„çŸ©é˜µåæ ‡ä½ç½®å¤„æ— è¿ç»­ç›¸åŒå€¼ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 						}
 					}
 					cout << endl;
-					cout << "²éÕÒ½á¹ûÊı×é£º" << endl;
+					cout << "æŸ¥æ‰¾ç»“æœæ•°ç»„ï¼š" << endl;
 					show_check(row, col, row_sign, col_sign, popstar);
 					cout << endl;
-					cout << "µ±Ç°Êı×é(²»Í¬É«±êÊ¶):" << endl;
+					cout << "å½“å‰æ•°ç»„(ä¸åŒè‰²æ ‡è¯†):" << endl;
 					mark(row, col, row_sign, col_sign, popstar);
 					cout << endl;
 					if ('A' == sel || 'a' == sel) {
 						break;
 					}
-					cout << "ÇëÈ·ÈÏÊÇ·ñ°Ñ" << cur_row << cur_col << "¼°ÖÜÎ§µÄÏàÍ¬ÖµÏû³ı(Y/N/Q)£º";
+					cout << "è¯·ç¡®è®¤æ˜¯å¦æŠŠ" << cur_row << cur_col << "åŠå‘¨å›´çš„ç›¸åŒå€¼æ¶ˆé™¤(Y/N/Q)ï¼š";
 					cin >> selection;
 					if (selection == 'Y' || selection == 'y') {
-						cout << "ÏàÍ¬Öµ¹é²¢ºóµÄÊı×é(²»Í¬É«±êÊ¶)£º" << endl;
+						cout << "ç›¸åŒå€¼å½’å¹¶åçš„æ•°ç»„(ä¸åŒè‰²æ ‡è¯†)ï¼š" << endl;
 						make_zero(row, col, popstar);
 						mark(row, col, row_sign, col_sign, popstar);
 						score = n * 5;
 						sum += score;
-						cout << "±¾´ÎµÃ·Ö£º" << score << "   ×ÜµÃ·Ö£º" << sum << endl;
-						wait("°´»Ø³µ¼ü½øĞĞÊı×éÏÂÂä²Ù×÷...", 1);
+						cout << "æœ¬æ¬¡å¾—åˆ†ï¼š" << score << "   æ€»å¾—åˆ†ï¼š" << sum << endl;
+						wait("æŒ‰å›è½¦é”®è¿›è¡Œæ•°ç»„ä¸‹è½æ“ä½œ...", 1);
 						cout << endl;
-						cout << "ÏÂÂäºóµÄÊı×é£º" << endl;
+						cout << "ä¸‹è½åçš„æ•°ç»„ï¼š" << endl;
 						move_zero(row, col, popstar);
 						mark(row, col, row_sign, col_sign, popstar);
 						if ('B' == sel || 'b' == sel) {
 							break;
 						}
-						wait("±¾´ÎÏû³ı½áÊø£¬°´»Ø³µ¼ü¼ÌĞøĞÂÒ»´ÎµÄÏû³ı...", 1);
+						wait("æœ¬æ¬¡æ¶ˆé™¤ç»“æŸï¼ŒæŒ‰å›è½¦é”®ç»§ç»­æ–°ä¸€æ¬¡çš„æ¶ˆé™¤...", 1);
 						cout << endl;
 					}
 					else if ('N' == selection || 'n' == selection) {
@@ -115,7 +114,7 @@ int main()
 				}
 				else {
 					cct_setcolor(COLOR_HYELLOW, COLOR_HPINK);
-					cout << "Ê£Óà" << row * col - sum / 5 << "¸ö²»¿ÉÏû³ıÏî£¬±¾¹Ø½áÊø£¡" << endl;
+					cout << "å‰©ä½™" << row * col - sum / 5 << "ä¸ªä¸å¯æ¶ˆé™¤é¡¹ï¼Œæœ¬å…³ç»“æŸï¼" << endl;
 					cct_setcolor();
 					break;
 				}
@@ -169,10 +168,10 @@ int main()
 				else if (ret > 0) {
 					cct_gotoxy(0, 8 + (row - 1) * 4);
 					cct_setcolor(COLOR_HYELLOW, COLOR_HPINK);
-					cout << "Ê£Óà" << row * col - ret / 5 << "¸öĞÇĞÇÎ´Ïû³ı£¬±¾¹Ø½áÊø£¡";
+					cout << "å‰©ä½™" << row * col - ret / 5 << "ä¸ªæ˜Ÿæ˜Ÿæœªæ¶ˆé™¤ï¼Œæœ¬å…³ç»“æŸï¼";
 					cct_setcolor();
 					cout << "                  " << endl;
-					wait("°´»Ø³µ¼ü¼ÌĞø½øĞĞÏÂÒ»¹Ø...", 1);
+					wait("æŒ‰å›è½¦é”®ç»§ç»­è¿›è¡Œä¸‹ä¸€å…³...", 1);
 				}
 			}
 			cct_gotoxy(0, 8 + (row - 1) * 4);
