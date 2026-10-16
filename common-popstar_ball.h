@@ -1,7 +1,6 @@
 #pragma once
-/*2352475 ¼Æ¿Æ Ò×Ñô*/
 
-//½á¹¹Ìå¶¨Òå
+//ç»“æ„ä½“å®šä¹‰
 struct RAND {
 	char number;
 	bool sign = 0;
@@ -9,55 +8,55 @@ struct RAND {
 	int zero_up = 0;
 };
 
-//¹²ÓÃº¯ÊıÉùÃ÷
+//å…±ç”¨å‡½æ•°å£°æ˜
 
-/*²Ëµ¥*/
+/*èœå•*/
 char menu(const char* Input[], const char* choice);
 
-/*ÊäÈë*/
+/*è¾“å…¥*/
 void input(int* row, int* col, int row_min, int row_max, int col_min, int col_max);
 
-/*²úÉúËæ»úÊı×é*/
+/*äº§ç”Ÿéšæœºæ•°ç»„*/
 void produce(int row, int col, int figure, struct RAND str[10][10]);
 
-/*´òÓ¡³õÊ¼Êı×é*/
+/*æ‰“å°åˆå§‹æ•°ç»„*/
 void print_table(int row, int col, const char* row_sign, const char* col_sign, struct RAND str[10][10]);
 
-/*²éÕÒ¿ÉÏû³ıÏî*/
+/*æŸ¥æ‰¾å¯æ¶ˆé™¤é¡¹*/
 void judge(int row, int col, int t_row, int t_col, struct RAND str[10][10]);
 
-/*¼ÆËã±¾´Î¿ÉÏû³ıÏîÊı*/
+/*è®¡ç®—æœ¬æ¬¡å¯æ¶ˆé™¤é¡¹æ•°*/
 int cal_num(int row, int col, struct RAND str[10][10]);
 
-/*±ê¼Ç¿ÉÏû³ıÏî£¬ÓÃÆäËûÑÕÉ«¸ßÁÁÏÔÊ¾*/
+/*æ ‡è®°å¯æ¶ˆé™¤é¡¹ï¼Œç”¨å…¶ä»–é¢œè‰²é«˜äº®æ˜¾ç¤º*/
 void mark(int row, int col, const char* row_sign, const char* col_sign, struct RAND str[10][10]);
 
-/*Ïû³ı¿ÉÏû³ıÏîºóÖÃ0*/
+/*æ¶ˆé™¤å¯æ¶ˆé™¤é¡¹åç½®0*/
 void make_zero(int row, int col, struct RAND str[10][10]);
 
-/*¸ßÁÁÏÔÊ¾ÖµÎª0µÄÏî*/
+/*é«˜äº®æ˜¾ç¤ºå€¼ä¸º0çš„é¡¹*/
 void mark_zero(int row, int col, const char* row_sign, const char* col_sign, struct RAND str[10][10]);
 
-/*½«ËùÓĞÖµÎª0µÄÏîÒÆ¶¯ÖÁÊı×é×îÇ°Ãæ£¬Èç¹ûÕûÁĞ¾ùÎª0ÔòÕûÌåÒÆ¶¯µ½Êı×é×îÓÒÃæ*/
+/*å°†æ‰€æœ‰å€¼ä¸º0çš„é¡¹ç§»åŠ¨è‡³æ•°ç»„æœ€å‰é¢ï¼Œå¦‚æœæ•´åˆ—å‡ä¸º0åˆ™æ•´ä½“ç§»åŠ¨åˆ°æ•°ç»„æœ€å³é¢*/
 void move_zero(int row, int col, struct RAND str[10][10]);
 
-/*·ÅÆúÏû³ı¿ÉÏû³ıÏî£¬ÖØÖÃÊı×é±ê¼Ç*/
+/*æ”¾å¼ƒæ¶ˆé™¤å¯æ¶ˆé™¤é¡¹ï¼Œé‡ç½®æ•°ç»„æ ‡è®°*/
 void cancel_operation(int row, int col, struct RAND str[10][10]);
 
-/*±¾¹¦ÄÜÏî²âÊÔÍê±Ï£¬µÈ´ı·µ»ØÖ÷²Ëµ¥»ò½øĞĞÏÂÒ»Ïî²Ù×÷*/
+/*æœ¬åŠŸèƒ½é¡¹æµ‹è¯•å®Œæ¯•ï¼Œç­‰å¾…è¿”å›ä¸»èœå•æˆ–è¿›è¡Œä¸‹ä¸€é¡¹æ“ä½œ*/
 void wait(const char* prompt, int choice);
 
-/*´òÓ¡³õÊ¼Íâ²¿¿ò¼Ü*/
+/*æ‰“å°åˆå§‹å¤–éƒ¨æ¡†æ¶*/
 void print_frame(int row, int col, struct RAND str[10][10], int RowColSign, const char* frame[], bool divide, int high, int length);
 
-/*´òÓ¡È«²¿µ¥Ôª¸ñÉ«¿é*/
+/*æ‰“å°å…¨éƒ¨å•å…ƒæ ¼è‰²å—*/
 void print_unit(int row, int col, struct RAND str[10][10], const char* frame[], const char* unit, int* high, int* length, int divide, int RowColSign, int color);
 
-/*´òÓ¡µ¥¸öµ¥Ôª¸ñÉ«¿é*/
+/*æ‰“å°å•ä¸ªå•å…ƒæ ¼è‰²å—*/
 void print_single(int x, int y, const char* frame[], const char* unit, int b_color, int f_color, int length);
 
-/*´òÓ¡É«¿éÒÆ¶¯*/
+/*æ‰“å°è‰²å—ç§»åŠ¨*/
 void print_move(int row, int col, struct RAND str[10][10], const char* frame[], const char* unit, int high, int length, int divide, int RowColSign);
 
-/*ÅĞ¶ÏÓÎÏ·ÊÇ·ñ½áÊø*/
+/*åˆ¤æ–­æ¸¸æˆæ˜¯å¦ç»“æŸ*/
 int finish(int row, int col, struct RAND str[10][10], int base);
