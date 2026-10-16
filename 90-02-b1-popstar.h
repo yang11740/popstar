@@ -1,5 +1,4 @@
 #pragma once
-/*2352475 ¼Æ¿Æ Ò×Ñô*/
 
 #define ROW_MAX 10
 #define COL_MAX 10
