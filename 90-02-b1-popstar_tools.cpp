@@ -1,14 +1,13 @@
-/* 2352475 ¼Æ¿Æ Ò×Ñô */
 #include <iostream>
 #include <conio.h>
 #include <time.h>
 #include <windows.h>
-#include "../include/cmd_console_tools.h"
-#include "../include/common-popstar_ball.h"
+#include "cmd_console_tools.h"
+#include "common-popstar_ball.h"
 #include "90-02-b1-popstar.h"
 using namespace std;
 
-/*ÓÃ'*'ÏÔÊ¾¿ÉÏû³ıÏî£¬ÆäÓàÏîÏÔÊ¾0*/
+/*ç”¨'*'æ˜¾ç¤ºå¯æ¶ˆé™¤é¡¹ï¼Œå…¶ä½™é¡¹æ˜¾ç¤º0*/
 void show_check(int row, int col, const char* row_sign, const char* col_sign, struct RAND str[10][10])
 {
 	int i, j;
@@ -37,7 +36,7 @@ void show_check(int row, int col, const char* row_sign, const char* col_sign, st
 	}
 	cout << endl;
 }
-/*ÓÃ¼üÅÌ»òÊó±êÑ¡Ôñ¡°µ±Ç°¡±É«¿é*/
+/*ç”¨é”®ç›˜æˆ–é¼ æ ‡é€‰æ‹©â€œå½“å‰â€è‰²å—*/
 int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int divide, const char* frame[], const char* unit,char sel)
 {
 	int x0 = 4, y0 = 3, x = x0, y = y0, i = 0, j = 0, X = 0, Y = 0, n = 0;
@@ -113,7 +112,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 				y = y0 + Y * ((y - y0) / y_base);
 				cct_disable_mouse();
 				cct_gotoxy(0, MAX_Y + 3);
-				cout << "[µ±Ç°¼üÅÌ]  " << (char)('A' + (y - y0) / y_base) << "ĞĞ" << (x - x0) / x_base << "ÁĞ                    " << endl;
+				cout << "[å½“å‰é”®ç›˜]  " << (char)('A' + (y - y0) / y_base) << "è¡Œ" << (x - x0) / x_base << "åˆ—                    " << endl;
 				if (1 == select) {
 					for (i = 0; i < row; i++) {
 						for (j = 0; j < col; j++) {
@@ -215,7 +214,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 				cct_disable_mouse();
 				if (sel == 'E' || sel == 'e' || sel == 'D' || sel == 'd') {
 					cct_gotoxy(0, MAX_Y + 3);
-					cout << "Ñ¡Ôñ" << (char)('A' + (y - y0) / y_base) << "ĞĞ" << (x - x0) / x_base << "ÁĞ                   " << endl;
+					cout << "é€‰æ‹©" << (char)('A' + (y - y0) / y_base) << "è¡Œ" << (x - x0) / x_base << "åˆ—                   " << endl;
 					return 0;
 				}
 				else if (sel == 'F' || sel == 'f' || sel == 'G' || sel == 'g') {
@@ -233,14 +232,14 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 							}
 							cct_setcolor();
 							cct_gotoxy(0, MAX_Y + 3);
-							cout << "¼ıÍ·¼ü/Êó±êÒÆ¶¯È¡Ïûµ±Ç°Ñ¡Ôñ£¬»Ø³µ¼ü/µ¥»÷×ó¼üºÏ³É" << endl;
+							cout << "ç®­å¤´é”®/é¼ æ ‡ç§»åŠ¨å–æ¶ˆå½“å‰é€‰æ‹©ï¼Œå›è½¦é”®/å•å‡»å·¦é”®åˆæˆ" << endl;
 							select = 1;
 							continue;
 						}
 						else {
 							cct_setcolor();
 							cct_gotoxy(0, MAX_Y + 3);
-							cout << "ÖÜÎ§ÎŞÏàÍ¬Öµ£¬¼ıÍ·¼ü/Êó±êÒÆ¶¯ÖØĞÂ½øĞĞÑ¡Ôñ          " << endl;
+							cout << "å‘¨å›´æ— ç›¸åŒå€¼ï¼Œç®­å¤´é”®/é¼ æ ‡ç§»åŠ¨é‡æ–°è¿›è¡Œé€‰æ‹©          " << endl;
 							continue;
 						}
 					}
@@ -257,7 +256,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 						if (sel == 'F' || sel == 'f') {
 							cct_setcolor();
 							cct_gotoxy(0, MAX_Y + 3);
-							cout << "ºÏ³ÉÍê³É£¬»Ø³µ¼ü/µ¥»÷×ó¼üÏÂÂä0                        " << endl;
+							cout << "åˆæˆå®Œæˆï¼Œå›è½¦é”®/å•å‡»å·¦é”®ä¸‹è½0                        " << endl;
 							continue;
 						}
 					}
@@ -273,7 +272,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 				cct_enable_mouse();
 				if (select == 0) {
 					cct_gotoxy(0, MAX_Y + 3);
-					cout << "[µ±Ç°Êó±ê]  " << (char)('A' + (y - y0) / y_base) << "ĞĞ" << (x - x0) / x_base << "ÁĞ                                          " << endl;
+					cout << "[å½“å‰é¼ æ ‡]  " << (char)('A' + (y - y0) / y_base) << "è¡Œ" << (x - x0) / x_base << "åˆ—                                          " << endl;
 					if ((y - y0) / y_base != (former_y - y0) / y_base || (x - x0) / x_base != (former_x - x0) / x_base) {
 						print_single(x0 + X * ((former_x - x0) / x_base), y0 + Y * ((former_y - y0) / y_base), frame, unit, str[(former_y - y0) / y_base][(former_x - x0) / x_base].number, COLOR_BLACK, 6);
 					}
@@ -287,7 +286,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 						cct_setcolor();
 						if (sel == 'E' || sel == 'e' || sel == 'D' || sel == 'd') {
 							cct_gotoxy(0, MAX_Y + 3);
-							cout << "Ñ¡Ôñ" << (char)('A' + (y - y0) / y_base) << "ĞĞ" << (x - x0) / x_base << "ÁĞ                      " << endl;
+							cout << "é€‰æ‹©" << (char)('A' + (y - y0) / y_base) << "è¡Œ" << (x - x0) / x_base << "åˆ—                      " << endl;
 							return 0;
 						}
 						else if (sel == 'F' || sel == 'f' || sel == 'G' || sel == 'g') {
@@ -305,14 +304,14 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 									}
 									cct_setcolor();
 									cct_gotoxy(0, MAX_Y + 3);
-									cout << "¼ıÍ·¼ü/Êó±êÒÆ¶¯È¡Ïûµ±Ç°Ñ¡Ôñ£¬»Ø³µ¼ü/µ¥»÷×ó¼üºÏ³É" << endl;
+									cout << "ç®­å¤´é”®/é¼ æ ‡ç§»åŠ¨å–æ¶ˆå½“å‰é€‰æ‹©ï¼Œå›è½¦é”®/å•å‡»å·¦é”®åˆæˆ" << endl;
 									select = 1;
 									continue;
 								}
 								else {
 									cct_setcolor();
 									cct_gotoxy(0, MAX_Y + 3);
-									cout << "ÖÜÎ§ÎŞÏàÍ¬Öµ£¬¼ıÍ·¼ü/Êó±êÒÆ¶¯ÖØĞÂ½øĞĞÑ¡Ôñ         " << endl;
+									cout << "å‘¨å›´æ— ç›¸åŒå€¼ï¼Œç®­å¤´é”®/é¼ æ ‡ç§»åŠ¨é‡æ–°è¿›è¡Œé€‰æ‹©         " << endl;
 									Sleep(300);
 									continue;
 								}
@@ -330,7 +329,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 								if (sel == 'F' || sel == 'f') {
 									cct_setcolor();
 									cct_gotoxy(0, MAX_Y + 3);
-									cout << "ºÏ³ÉÍê³É£¬»Ø³µ¼ü/µ¥»÷×ó¼üÏÂÂä0                 " << endl;
+									cout << "åˆæˆå®Œæˆï¼Œå›è½¦é”®/å•å‡»å·¦é”®ä¸‹è½0                 " << endl;
 									continue;
 								}
 							}
@@ -354,7 +353,7 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 		else {
 			cct_setcolor();
 			cct_gotoxy(0, MAX_Y + 3);
-			cout << "[µ±Ç°Êó±ê]  Î»ÖÃ·Ç·¨                                         " << endl;
+			cout << "[å½“å‰é¼ æ ‡]  ä½ç½®éæ³•                                         " << endl;
 			for (i = 0; i < row; i++) {
 				for (j = 0; j < col; j++) {
 					if (COLOR_HWHITE == str[i][j].color && str[i][j].number != '0') {
@@ -366,14 +365,14 @@ int select_by_keyboard_and_mouse(int row,int col, struct RAND str[10][10],int di
 		}
 	}
 }
-/*½øĞĞÍêÕû°æÓÎÏ·*/
+/*è¿›è¡Œå®Œæ•´ç‰ˆæ¸¸æˆ*/
 int game(int row, int col, struct RAND str[10][10], const char* frame[], const char* unit, int* sum)
 {
 	int score = 0, n = 0, s = 0, t = 0;
 	while (finish(row, col, str, 2)) {
 		cct_setcolor();
 		cct_gotoxy(0, 0);
-		cout << "±¾´ÎµÃ·Ö£º" << score << "  ×ÜµÃ·Ö£º" << *sum << "         " << endl;
+		cout << "æœ¬æ¬¡å¾—åˆ†ï¼š" << score << "  æ€»å¾—åˆ†ï¼š" << *sum << "         " << endl;
 		n = select_by_keyboard_and_mouse(row, col, str, 1, frame, unit, 'G');
 		if (n == -1) {
 			return -1;
@@ -387,7 +386,7 @@ int game(int row, int col, struct RAND str[10][10], const char* frame[], const c
 		*sum += t;
 		cct_setcolor();
 		cct_gotoxy(0, 0);
-		cout << "½±ÀøµÃ·Ö£º" << t << "  ×ÜµÃ·Ö£º" << *sum << "         " << endl;
+		cout << "å¥–åŠ±å¾—åˆ†ï¼š" << t << "  æ€»å¾—åˆ†ï¼š" << *sum << "         " << endl;
 	}
 	return s;
 }
